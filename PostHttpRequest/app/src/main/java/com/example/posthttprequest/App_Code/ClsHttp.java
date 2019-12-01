@@ -53,9 +53,9 @@ public class ClsHttp implements InterfaceHTTP {
                 dStream.close();
                 int responseCode = connection.getResponseCode();
                 if(responseCode==RESPONSE_CODE)
-                    Message="User Created Successfully.";
+                    Message="Post Request Successfully.";
                 else
-                    Message="User Creation failed.";
+                    Message="Post Request failed.";
                 isPostExecuted=true;
             }else{
                 Message="HTTP connection for POST method failed.";
@@ -74,9 +74,12 @@ public class ClsHttp implements InterfaceHTTP {
         String urlParameters="";
         try{
             urlParameters="UserID="+user.getUserID();
-            urlParameters+="&Email="+user.getEmail();
+            if(user.getEmail()!="")
+                urlParameters+="&Email="+user.getEmail();
+            if(user.getMobile()!="")
             urlParameters+="&Mobile="+user.getMobile();
-            urlParameters+="&UserPass="+user.getUserPass();
+            if(user.getUserPass()!="")
+                urlParameters+="&UserPass="+user.getUserPass();
         }catch (Exception ex){
             Message=ex.getMessage();
         }

@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     TextView postOutput;
     String Message = "";
     Boolean isUserCreated=false;
+    Boolean isUserDeleted=false;
     ModelUser user;
 
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         postOutput = findViewById(R.id.postOutput);
 
-        user=new ModelUser("0","test@gmail.com","9999999999","testpwd");
+        user=new ModelUser("0","gmail@taran.com","9878787878","pwdTaran");
 
         Thread thread=new Thread(
                 new Runnable() {
