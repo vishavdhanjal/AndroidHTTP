@@ -15,14 +15,10 @@ public class ClsHttp implements InterfaceHTTP {
     Boolean isPostExecuted=false;
     Boolean isGetExecuted=false;
 
-
     String Message="";
-
 
     protected URL url;
     protected HttpURLConnection connection;
-
-
 
     @Override
     public JSONObject HttpGetRequest(URL url) {
@@ -45,7 +41,7 @@ public class ClsHttp implements InterfaceHTTP {
             isGetExecuted=false;
             getConnection(webUrl);
             if(isconnected){
-                connection.setRequestMethod("POST");
+                connection.setRequestMethod("DELETE");
                 connection.setDoOutput(true);
                 DataOutputStream dStream = new DataOutputStream(connection.getOutputStream());
                 dStream.writeUTF(prepareURLParameters(user));

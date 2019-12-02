@@ -21,30 +21,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         postOutput = findViewById(R.id.postOutput);
 
-        user=new ModelUser("0","gmail@taran.com","9878787878","pwdTaran");
+        user=new ModelUser("20","","","");
 
         Thread thread=new Thread(
                 new Runnable() {
                     @Override
                     public void run() {
                         ControllerUser controllerUser=new ControllerUser();
-                        Message = controllerUser.createUser(user);
-                        isUserCreated=controllerUser.isUserCreated;
+                        Message = controllerUser.deleteUser(user);
+                        isUserDeleted=controllerUser.isUserDeleted;
                     }
                 }
         );
         thread.start();
-        while(!isUserCreated);
 
-        if(isUserCreated)
+        while(!isUserDeleted);
+        if(isUserDeleted)
             postOutput.setText(Message);
     }
 
 /*    protected void testPost() {
         try {
-            URL url = new URL("http://foilcollection.infisys.in/Default/CreateUser");
+            URL url = new URL("http://");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            String urlParameters = "UserID=0&Email=sukhjit@yahoo.com&Mobile=9876543213&UserPass=sukhjit";
+            String urlParameters = "UserID=0&Email=xyp@yahoo.com&Mobile=9876543213&UserPass=xyz";
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
             DataOutputStream dStream = new DataOutputStream(connection.getOutputStream());
