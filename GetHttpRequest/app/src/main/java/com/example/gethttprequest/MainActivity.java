@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
                 new Runnable() {
                     @Override
                     public void run() {
-                        ModelUser user=new ModelUser();
-                        user.setUserID("17");
-
                         ControllerUser controllerUser=new ControllerUser();
-                        controllerUser.deleteUser(user);
+
+                        /*ModelUser user=new ModelUser();
+                        user.setUserID("17");
+                        controllerUser.deleteUser(user);*/
 
                         ArrayList<ModelUser> lstUsers=controllerUser.getAllUsers();
                         for(int i=0;i<lstUsers.size();i++)
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         if(getRequest)
             txtView.setText(Message);
     }
+
 
     /*protected void testGET(){
         try {
