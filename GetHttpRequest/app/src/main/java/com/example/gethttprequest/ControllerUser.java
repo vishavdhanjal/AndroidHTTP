@@ -67,15 +67,15 @@ public class ControllerUser {
         }
         return lstUsers;
     }
-/*    public String deleteUser(ModelUser user){
+    public String deleteUser(ModelUser user){
         isUserDeleted=false;
         try{
             ClsHttp http=new ClsHttp();
-            Message=http.HttpPostRequest(BaseURLs.getDeleteUsersUrl(),user);
+            http.HttpGetRequest(BaseURLs.getDeleteUserUrl()+user.getUserID());
             isUserDeleted=true;
         }catch (Exception ex){
             Message=ex.getMessage();
         }
         return Message;
-    }*/
+    }
 }
