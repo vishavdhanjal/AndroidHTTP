@@ -1,30 +1,18 @@
 package com.example.gethttprequest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.gethttprequest.App_Code.BaseURLs;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.gethttprequest.App_Code.ModelUser;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity {
     String Message="";
     TextView txtView;
-    boolean post=true;
+    boolean getRequest=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +29,15 @@ public class MainActivity extends AppCompatActivity {
                                     lstUsers.get(i).getEmail()+"\t"+
                                     lstUsers.get(i).getMobile()+"\t"+
                                     lstUsers.get(i).getUserPass()+"\n";
-                        txtView.setText(Message);
+                        getRequest=true;
+
                     }
                 }
         );
         thread.start();
+        while(!getRequest){}
+        if(getRequest)
+            txtView.setText(Message);
     }
 
     /*protected void testGET(){
