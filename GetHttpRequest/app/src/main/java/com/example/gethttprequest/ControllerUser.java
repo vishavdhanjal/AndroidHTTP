@@ -48,6 +48,25 @@ public class ControllerUser {
         }
         return lstUsers;
     }
+    public ArrayList<ModelUser> getUser(ModelUser modelUser){
+        ArrayList<ModelUser> lstUsers=new ArrayList<>();
+        try{
+            ClsHttp http=new ClsHttp();
+            JSONArray jsonArray =http.HttpGetRequest(BaseURLs.getGetUserUrl()+modelUser.getUserID());
+            for(int i=0;i<jsonArray.length();i++){
+                JSONObject jsonObject=jsonArray.getJSONObject(i);
+                ModelUser user=new ModelUser();
+                user.setUserID(jsonObject.getString("UserID"));
+                user.setMobile(jsonObject.getString("Mobile"));
+                user.setEmail(jsonObject.getString("Email"));
+                user.setUserPass(jsonObject.getString("UserPass"));
+                lstUsers.add(user);
+            }
+        }catch(Exception ex){
+            Message=ex.getMessage();
+        }
+        return lstUsers;
+    }
 /*    public String deleteUser(ModelUser user){
         isUserDeleted=false;
         try{

@@ -10,4 +10,14 @@ public class BaseURLs {
     protected static final String UPDATE_USERS_URL="";
     protected static final String CREATE_USER_URL="";
     protected static final String GET_USERS_URL="http://foilcollection.infisys.in//api/Default/Get";
+
+    public static String getCreateUserUrl() {
+        return CREATE_USER_URL;
+    }
+
+    public static String getGetUserUrl() {
+        return GET_USER_URL;
+    }
+
+    protected static final String GET_USER_URL="http://foilcollection.infisys.in/Default/GetUser?UserID=";
 }
