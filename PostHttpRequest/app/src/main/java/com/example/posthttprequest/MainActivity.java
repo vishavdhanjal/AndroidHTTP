@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             dStream.flush();
             dStream.close();
             int responseCode = connection.getResponseCode();
+
             String output = "Request URL : " + url;
             output += "\n" + "Request Parameters : " + urlParameters;
             output += "\n" + "Response Code: " + responseCode;
